@@ -18,7 +18,13 @@ const [sintomas, setSintomas] = useState('');
 
 const handleSubmit = () => {
   e.preventDefault();
-  console.log('Enviando formulario')
+
+  // Validación del Formulario
+  if([nombre, propietario, email, fecha, sintomas].includes(' ')){
+    console.log('Hay al menos un campo vacio');
+  } else {
+    console.log('Todos llenos');
+  }
 } /*Para múltiples líneas se debería generar otra función*/
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
