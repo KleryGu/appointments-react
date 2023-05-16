@@ -1,10 +1,14 @@
-function App() {
+import Header from "./components/Header"
+import Formulario from "./components/Form"
+import PatientsList from "./components/PatientsList"
 
+function App() {
   return (
     <>
-      <div>
-        <h1>Hola Mundo</h1>
-      </div>
+     <Header />
+     <Formulario />
+     <PatientsList />
+
     </>
   )
 }
