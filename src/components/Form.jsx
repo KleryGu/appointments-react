@@ -3,7 +3,6 @@ Reglas Hooks:
 - No pueden ir por fuera de componentes. Tienen que ir inmediatamente después de que fue declarada la función.
 - No se pueden registrar de forma condicional.
 - No se pueden registrar después de un return.
-
 */ 
 
 import {useState, useEffect} from 'react';
@@ -28,6 +27,8 @@ const [nombre, setNombre] = useState('');
             type="text"
             placeholder="Nombre de la Mascota"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value= {nombre}
+            onChange={(e) => setNombre(e.target.value)}
           />
         </div>
 
