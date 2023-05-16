@@ -1,8 +1,18 @@
+/*
+Reglas Hooks:
+- No pueden ir por fuera de componentes. Tienen que ir inmediatamente después de que fue declarada la función.
+- No se pueden registrar de forma condicional.
+- No se pueden registrar después de un return.
+
+*/ 
+
 import {useState, useEffect} from 'react';
 
+
 const Form = () => {
-  const [nombre, setNombre] = useState('');
-  setNombre('Hook');
+
+const [nombre, setNombre] = useState('');
+
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-3xl text-center mb-10">Seguimiento Pacientes</h2>
