@@ -8,7 +8,7 @@ Reglas Hooks:
 import { useState, useEffect } from 'react';
 
 
-const Form = () => {
+const Form = ({pacientes, setPacientes}) => {
 
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
@@ -27,6 +27,26 @@ const Form = () => {
       return;
     }
     setError(false);
+
+    // Objeto de Paciente
+
+    const objetoPaciente={
+        nombre,
+        propietario,
+        email,
+        fecha,
+        sintomas
+    }
+
+    setPacientes([...pacientes,objetoPaciente]);
+
+    //Reiniciar el formulario
+      setNombre('')
+      setPropietario('')
+      setEmail('')
+      setFecha('')
+      setSintomas('')
+
 
   } /*Para múltiples líneas se debería generar otra función*/
   return (
