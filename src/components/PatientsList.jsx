@@ -1,6 +1,6 @@
 import Patient from "./Patient";
 
-function PatientsList () {
+function PatientsList ({pacientes}) {
 
     return (
         <div className="md: w-1/2 lg:w-3/5 md: h-screen overflow-y-scroll">
@@ -10,12 +10,12 @@ function PatientsList () {
                     <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
 
                 </p>
-                    <Patient />
-                    <Patient />
-                    <Patient />
-                    <Patient />
-                    <Patient />
-                    <Patient />
+                    {pacientes.map( paciente => (
+                        <Patient 
+                            paciente={paciente}
+                        />
+                    ))}
+                    
         </div>
     )
 }
