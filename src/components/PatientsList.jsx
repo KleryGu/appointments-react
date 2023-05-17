@@ -10,9 +10,9 @@ function PatientsList ({pacientes}) {
                     <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
 
                 </p>
-                    {pacientes.map( (paciente, index) => (
+                    {pacientes.map( paciente => (
                         <Patient 
-                            key= {index}//siempre que se muestra un listado con .map se tiene que tener un key único
+                            key= {paciente.id} //siempre que se muestra un listado con .map se tiene que tener un key único
                             paciente={paciente}
                         />
                     ))}
