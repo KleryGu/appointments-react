@@ -1,6 +1,6 @@
 import Patient from "./Patient";
 
-function PatientsList ({pacientes}) {
+function PatientsList ({pacientes, setPaciente}) {
 
     return (
         <div className="md: w-1/2 lg:w-3/5 md: h-screen overflow-y-scroll">
@@ -17,6 +17,7 @@ function PatientsList ({pacientes}) {
                             <Patient 
                                 key= {paciente.id} //siempre que se muestra un listado con .map se tiene que tener un key único
                                 paciente={paciente}
+                                setPaciente={setPaciente}
                             />
                         ))}
                 </>
