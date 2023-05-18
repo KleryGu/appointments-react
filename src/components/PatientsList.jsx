@@ -1,6 +1,7 @@
-import Patient from "./Patient";
+import Patient from "./Patient"
 
 function PatientsList ({pacientes, setPaciente}) {
+
 
     return (
         <div className="md: w-1/2 lg:w-3/5 md: h-screen overflow-y-scroll">
