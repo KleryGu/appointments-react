@@ -1,6 +1,6 @@
 import Patient from "./Patient"
 
-function PatientsList ({pacientes, setPaciente}) {
+function PatientsList ({pacientes, setPaciente, eliminarPaciente}) {
 
 
     return (
@@ -19,6 +19,7 @@ function PatientsList ({pacientes, setPaciente}) {
                                 key= {paciente.id} //siempre que se muestra un listado con .map se tiene que tener un key único
                                 paciente={paciente}
                                 setPaciente={setPaciente}
+                                eliminarPaciente={eliminarPaciente}
                             />
                         ))}
                 </>
