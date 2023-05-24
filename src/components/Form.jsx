@@ -8,7 +8,7 @@ Reglas Hooks:
 import { useState, useEffect } from 'react';
 import Error from './Error'
 
-const Form = ({pacientes, setPacientes, paciente}) => {
+const Form = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
@@ -48,17 +48,27 @@ const Form = ({pacientes, setPacientes, paciente}) => {
     setError(false);
 
     // Objeto de Paciente
-
     const objetoPaciente={
         nombre,
         propietario,
         email,
         fecha,
-        sintomas,
-        id: generarId()
+        sintomas
     }
 
-    setPacientes([...pacientes,objetoPaciente]);
+    if(paciente.id){
+      // Editando el registro
+      objetoPaciente.id = paciente.id
+      const pacientesActualizados = pacientes.map(pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState)
+      
+      setPacientes(pacientesActualizados)
+      setPaciente({})
+    } else {
+      // Nuevo registro
+      objetoPaciente.id = generarId();
+      setPacientes([...pacientes,objetoPaciente]);
+
+    }
 
     //Reiniciar el formulario
       setNombre('')
@@ -144,11 +154,12 @@ const Form = ({pacientes, setPacientes, paciente}) => {
           />
         </div>
 
-        <button
+        <input
           type="submit"
           className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 text-center cursor-pointer transition-all"
+          value={paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}
 
-        >Agregar Paciente</button>
+          />
 
       </form>
     </div>
